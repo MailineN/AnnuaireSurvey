@@ -6,6 +6,8 @@ import com.example.annuaire.exceptions.DuplicateException;
 import com.example.annuaire.repository.CompteRepository;
 import com.example.annuaire.services.CompteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,18 +31,21 @@ public class CompteController {
     }
 
     @GetMapping("/comptes")
-    List<Compte> all(){
-        return compteRepository.findAll();
+    ResponseEntity<List<Compte>> all(){
+
+        return ResponseEntity.ok(compteRepository.findAll());
     }
 
     @PostMapping("/comptes")
-    void createAccount(@RequestBody List<Unit> units){
+    ResponseEntity createAccount(@RequestBody List<Unit> units){
         try {
             List<Compte> listAccount = compteService.generateAccount(units);
             compteRepository.saveAll(listAccount);
             LOGGER.info("Accounts created");
+            return new ResponseEntity(HttpStatus.CREATED);
         } catch (DuplicateException e){
             LOGGER.error("Error in request: duplicate unit");
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 }
