@@ -35,9 +35,10 @@ public class CompteController {
 
     @PostMapping("/comptes")
     void createAccount(@RequestBody List<Unit> units){
-        LOGGER.info("POST request to create accounts");
         try {
-            compteService.generateAccount(units);
+            List<Compte> listAccount = compteService.generateAccount(units);
+            compteRepository.saveAll(listAccount);
+            LOGGER.info("Accounts created");
         } catch (DuplicateException e){
             LOGGER.error("Error in request: duplicate unit");
         }
