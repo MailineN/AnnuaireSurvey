@@ -74,7 +74,7 @@ public class CompteService {
         CharacterRule splCharRule = new CharacterRule(specialChars);
         splCharRule.setNumberOfCharacters(2);
 
-        String password = gen.generatePassword(10, splCharRule, lowerCaseRule,
+        String password = gen.generatePassword(15, splCharRule, lowerCaseRule,
                 upperCaseRule, digitRule);
         return password;
     }
