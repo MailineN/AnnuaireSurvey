@@ -13,6 +13,7 @@ public class Compte {
     private Long id;
     private String nom;
     private String password;
+    private Long id_survey;
 
     public Compte (){}
 
@@ -39,6 +40,14 @@ public class Compte {
 
     public Long getId() {
         return id;
+    }
+
+    public Long getId_survey() {
+        return id_survey;
+    }
+
+    public void setId_survey(Long id_survey) {
+        this.id_survey = id_survey;
     }
 
     @Override
