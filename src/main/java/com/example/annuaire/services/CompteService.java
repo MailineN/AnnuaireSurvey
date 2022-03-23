@@ -40,11 +40,13 @@ public class CompteService {
 
     Compte createAccount(Unit unit){
         String email = unit.getEmail();
+        Long id_survey = unit.getIdSurvey();
         if (email.length() < 2){
             email = generatePassword();
         }
         String password = generatePassword();
-        Compte compte = new Compte(email = email, password=password);
+        Compte compte = new Compte(email = email, password=password, id_survey);
+        LOGGER.info("Account created for " + compte.toString()+ " with id survey "+ compte.getId_survey());
         return compte;
     }
 

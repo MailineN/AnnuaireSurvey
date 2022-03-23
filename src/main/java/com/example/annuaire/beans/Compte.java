@@ -17,9 +17,10 @@ public class Compte {
 
     public Compte (){}
 
-    public Compte(String nom, String password) {
+    public Compte(String nom, String password, Long id_survey) {
         this.nom = nom;
         this.password = password;
+        this.id_survey =id_survey;
     }
 
     public String getNom() {
@@ -69,6 +70,7 @@ public class Compte {
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", password='" + password + '\'' +
+                ", id_survey=" + id_survey +
                 '}';
     }
 }

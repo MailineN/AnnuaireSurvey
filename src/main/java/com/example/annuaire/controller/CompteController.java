@@ -39,6 +39,7 @@ public class CompteController {
     @PostMapping("/comptes")
     ResponseEntity createAccount(@RequestBody List<Unit> units){
         try {
+            LOGGER.info(units.toString());
             List<Compte> listAccount = compteService.generateAccount(units);
             compteRepository.saveAll(listAccount);
             LOGGER.info("Accounts created");

@@ -1,0 +1,9 @@
+/Users/mailinenguyen/Documents/Stage2022/annuaire/src/main/java/com/example/annuaire/AnnuaireApplication.java
+/Users/mailinenguyen/Documents/Stage2022/annuaire/src/main/java/com/example/annuaire/beans/Compte.java
+/Users/mailinenguyen/Documents/Stage2022/annuaire/src/main/java/com/example/annuaire/repository/UnitRepository.java
+/Users/mailinenguyen/Documents/Stage2022/annuaire/src/main/java/com/example/annuaire/repository/CompteRepository.java
+/Users/mailinenguyen/Documents/Stage2022/annuaire/src/main/java/com/example/annuaire/controller/CompteController.java
+/Users/mailinenguyen/Documents/Stage2022/annuaire/src/main/java/com/example/annuaire/LoaderExample.java
+/Users/mailinenguyen/Documents/Stage2022/annuaire/src/main/java/com/example/annuaire/services/CompteService.java
+/Users/mailinenguyen/Documents/Stage2022/annuaire/src/main/java/com/example/annuaire/exceptions/DuplicateException.java
+/Users/mailinenguyen/Documents/Stage2022/annuaire/src/main/java/com/example/annuaire/beans/Unit.java

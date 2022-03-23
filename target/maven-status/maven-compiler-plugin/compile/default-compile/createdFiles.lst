@@ -1,0 +1,10 @@
+com/example/annuaire/beans/Unit.class
+com/example/annuaire/services/CompteService.class
+com/example/annuaire/AnnuaireApplication.class
+com/example/annuaire/repository/CompteRepository.class
+com/example/annuaire/controller/CompteController.class
+com/example/annuaire/services/CompteService$1.class
+com/example/annuaire/beans/Compte.class
+com/example/annuaire/exceptions/DuplicateException.class
+com/example/annuaire/LoaderExample.class
+com/example/annuaire/repository/UnitRepository.class

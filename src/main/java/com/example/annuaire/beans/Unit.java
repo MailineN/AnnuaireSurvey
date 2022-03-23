@@ -15,15 +15,16 @@ public class Unit {
     private String prenom;
     private String email;
     private String telephone;
-    private Long idSurvey; // L'idée est de générer un mdp par enquête, a faire plus tard
+    private Long id_survey; // L'idée est de générer un mdp par enquête, a faire plus tard
     public Unit() {
 
     }
-    public Unit(String nom, String prenom, String email, String telephone){
+    public Unit(String nom, String prenom, String email, String telephone,Long idSurvey){
         this.email =email;
         this.nom = nom;
         this.prenom = prenom;
         this.telephone = telephone;
+        this.id_survey = id_survey;
     }
 
     public Long getId() {
@@ -47,11 +48,11 @@ public class Unit {
     }
 
     public Long getIdSurvey() {
-        return idSurvey;
+        return id_survey;
     }
 
-    public void setIdSurvey(Long idSurvey) {
-        this.idSurvey = idSurvey;
+    public void setIdSurvey(Long id_survey) {
+        this.id_survey = id_survey;
     }
 
     public String getEmail() {
@@ -86,11 +87,12 @@ public class Unit {
     @Override
     public String toString() {
         return "Unit{" +
-                "nom='" + nom + '\'' +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
+                ", id_survey=" + id_survey +
                 '}';
     }
-
 }
