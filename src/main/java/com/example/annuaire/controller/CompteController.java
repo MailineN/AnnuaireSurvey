@@ -8,10 +8,7 @@ import com.example.annuaire.services.CompteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,11 +33,12 @@ public class CompteController {
         return ResponseEntity.ok(compteRepository.findAll());
     }
 
-    @PostMapping("/comptes")
-    ResponseEntity createAccount(@RequestBody List<Unit> units){
+    @PostMapping("/comptes/{surveyID}")
+    ResponseEntity createAccount(@RequestBody List<Unit> units, @PathVariable String surveyID){
         try {
-            LOGGER.info(units.toString());
-            List<Compte> listAccount = compteService.generateAccount(units);
+            LOGGER.info("POST request to create accounts for survey "+ surveyID);
+            Long idLongSurvey = Long.parseLong(surveyID);
+            List<Compte> listAccount = compteService.generateAccount(units,idLongSurvey);
             compteRepository.saveAll(listAccount);
             LOGGER.info("Accounts created");
             return new ResponseEntity(HttpStatus.CREATED);

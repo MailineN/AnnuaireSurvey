@@ -24,15 +24,17 @@ public class CompteService {
     @Autowired
     CompteRepository compteRepository;
 
-    public List<Compte> generateAccount(List<Unit> units) throws DuplicateException{
+    public List<Compte> generateAccount(List<Unit> units, Long idSurvey) throws DuplicateException{
         List<Unit> distinctList = new ArrayList(new HashSet(units));
         if (distinctList.size() < units.size()) {
             throw new DuplicateException("Unit");
         } else {
             List<Compte> listAccount = new ArrayList<Compte>();
             for (Unit unit:units){
-                listAccount.add(createAccount(unit));
-                LOGGER.info("Create account for ", unit.toString());
+                Compte account = createAccount(unit);
+                account.setId_survey(idSurvey);
+                listAccount.add(account);
+                LOGGER.info("Create account:  ", account.toString());
             }
             return listAccount;
         }
