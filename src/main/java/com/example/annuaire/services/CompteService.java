@@ -26,6 +26,7 @@ public class CompteService {
 
     public List<Compte> generateAccount(List<Unit> units, Long idSurvey) throws DuplicateException{
         List<Unit> distinctList = new ArrayList(new HashSet(units));
+        LOGGER.info("Id survey in generate account ",idSurvey);
         if (distinctList.size() < units.size()) {
             throw new DuplicateException("Unit");
         } else {

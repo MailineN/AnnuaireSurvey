@@ -36,12 +36,13 @@ public class CompteController {
     @PostMapping("/comptes/{surveyID}")
     ResponseEntity createAccount(@RequestBody List<Unit> units, @PathVariable String surveyID){
         try {
-            LOGGER.info("POST request to create accounts for survey "+ surveyID);
+
             Long idLongSurvey = Long.parseLong(surveyID);
+            LOGGER.info("POST request to create accounts for survey "+ idLongSurvey);
             List<Compte> listAccount = compteService.generateAccount(units,idLongSurvey);
             compteRepository.saveAll(listAccount);
             LOGGER.info("Accounts created");
-            return new ResponseEntity(HttpStatus.CREATED);
+            return new ResponseEntity(HttpStatus.OK);
         } catch (DuplicateException e){
             LOGGER.error("Error in request: duplicate unit");
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
